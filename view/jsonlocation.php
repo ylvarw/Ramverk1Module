@@ -1,6 +1,7 @@
 <?php
 
 namespace Anax\View;
+
 /**
  * render ip validation with json
  */
@@ -12,10 +13,15 @@ namespace Anax\View;
 <h1>hitta en plats med IP</h1>
 <br>
 
+
 <form method="post">
-    ip: <input type="text" name="ip">
-    <input type="submit" name="doValidate" value="Hitta plats">
+    IP: <input type="text" name="ip" placeholder="<?= $ipAddress ?>" required>
+    <input type="submit" name="doLocate" value="Hitta plats">
 </form>
+<!-- <form method="post">
+    ip: <input type="text" name="ip">
+    <input type="submit" name="doLocate" value="Hitta plats">
+</form> -->
 
 <p> <?= json_encode($json) ?> </p>
 

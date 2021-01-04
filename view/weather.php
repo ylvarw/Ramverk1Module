@@ -57,47 +57,47 @@ namespace Anax\View;
 <?php if ($forecastData) : ?>
     <p><b>Plats: </b> <?= $city ?>, <?= $coordinates ?> </p>
     <?php foreach ($forecastData["daily"] as $data) : ?>
-            <p>
-                <br>
-                <b>Datum:</b> <?= date("Y-m-d", (int)json_encode($data["dt"])) ?>
-                <br>
-                Dagens väder: <?= json_encode($data["weather"][0]["description"]) ?> 
-                <br>
-                Temperatur: <?= json_encode($data["temp"]["day"]) ?> C
-                <br>
-                Max: <?= json_encode($data["temp"]["max"]) ?> C
-                <br>
-                Min: <?= json_encode($data["temp"]["min"]) ?> C
-                <br>
-                Luftfuktighet: <?= json_encode($data["humidity"]) ?>%
-                Vindstyrka: <?= json_encode($data["wind_speed"]) ?> m/s
+        <p>
+            <br>
+            <b>Datum:</b> <?= date("Y-m-d", (int)json_encode($data["dt"])) ?>
+            <br>
+            Dagens väder: <?= json_encode($data["weather"][0]["description"]) ?> 
+            <br>
+            Temperatur: <?= json_encode($data["temp"]["day"]) ?> C
+            <br>
+            Max: <?= json_encode($data["temp"]["max"]) ?> C
+            <br>
+            Min: <?= json_encode($data["temp"]["min"]) ?> C
+            <br>
+            Luftfuktighet: <?= json_encode($data["humidity"]) ?>%
+            Vindstyrka: <?= json_encode($data["wind_speed"]) ?> m/s
         </p>
-        <?php endforeach;?>
+    <?php endforeach;?>
 <?php endif; ?>
 
 
 <?php if ($weatherHistorydata) : ?>
-        <p><b>Plats: </b> <?= $city ?>, <?= $coordinates ?> </p>
-        <?php foreach ($weatherHistorydata as $index => $data) : ?>
-            <p>
-                <br>
-                <b>Datum:</b> <?= date("Y-m-d", (int)json_encode($data["current"]["dt"])); ?>
-                <br>
-                Dagens väder:  <?= json_encode($data["current"]["weather"][0]["description"]) ?> 
-                <br>
-                Temperatur: <?= json_encode($data["current"]["temp"]) ?> C
-                <br>
-                Luftfuktighet: <?= json_encode($data["current"]["humidity"]) ?>%
-                <br>
-                Vindstyrka: <?= json_encode($data["current"]["wind_speed"]) ?> m/s
-        </p>
-        <?php endforeach;?>
+    <p><b>Plats: </b> <?= $city ?>, <?= $coordinates ?> </p>
+    <?php foreach ($weatherHistorydata as $index => $data) : ?>
+        <p>
+            <br>
+            <b>Datum:</b> <?= date("Y-m-d", (int)json_encode($data["current"]["dt"])); ?>
+            <br>
+            Dagens väder:  <?= json_encode($data["current"]["weather"][0]["description"]) ?> 
+            <br>
+            Temperatur: <?= json_encode($data["current"]["temp"]) ?> C
+            <br>
+            Luftfuktighet: <?= json_encode($data["current"]["humidity"]) ?>%
+            <br>
+            Vindstyrka: <?= json_encode($data["current"]["wind_speed"]) ?> m/s
+    </p>
+    <?php endforeach;?>
 <?php endif; ?>
 
 
 <div id="map" style="height: 590px"></div>
 
-<?php if($weatherdata or $forecastData or $weatherHistorydata) : ?>
+<?php if ($weatherdata or $forecastData or $weatherHistorydata) : ?>
     <script src='https://unpkg.com/leaflet@1.3.3/dist/leaflet.js'></script>
     
 
