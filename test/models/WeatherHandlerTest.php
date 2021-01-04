@@ -62,5 +62,4 @@ class WeatherHandlerTest extends TestCase
         $res = $weather->getWeatherMap($lat, $lon);
         $this->assertIsArray($res);
     }
-
 }

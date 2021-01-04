@@ -18,10 +18,10 @@ class IpPositionTest extends TestCase
     {
         // get testData
         $ipClass = new IpHandler();
-        $ip = $ipClass->getUserIp();
+        $ipNumber = $ipClass->getUserIp();
         
         $geo = new IpPosition();
-        $res = $geo->getPosition($ip);
+        $res = $geo->getPosition($ipNumber);
         $this->assertNotNull($res);
     }
 }
